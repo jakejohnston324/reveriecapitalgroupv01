@@ -1,0 +1,2396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverie Capital Group - Fund I Investment Deck</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0F172A;
+            --secondary: #1E293B;
+            --accent: #3B82F6;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --light: #F8FAFC;
+            --gray: #64748B;
+            --text: #334155;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .slide {
+            width: 100%;
+            min-height: 100vh;
+            background: white;
+            padding: 60px 80px;
+            position: relative;
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 80px;
+            font-size: 11px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        
+        h2 {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--gray);
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+        
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        
+        h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent), #6366F1);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 20px;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            margin-bottom: 30px;
+        }
+        
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 30px 0;
+        }
+        
+        .metric-card {
+            background: var(--light);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .metric-label {
+            font-size: 13px;
+            color: var(--gray);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .table-modern {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        
+        .table-modern thead {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .table-modern th {
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .table-modern td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #E2E8F0;
+            font-size: 15px;
+        }
+        
+        .table-modern tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .table-modern tbody tr:hover {
+            background: var(--light);
+        }
+        
+        .three-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .pillar-card {
+            background: white;
+            border: 2px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #6366F1);
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            border-color: var(--accent);
+        }
+        
+        .pillar-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .waterfall-chart {
+            display: flex;
+            align-items: flex-end;
+            height: 300px;
+            gap: 16px;
+            margin: 40px 0;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 12px;
+        }
+        
+        .waterfall-bar {
+            flex: 1;
+            background: linear-gradient(180deg, var(--accent), #6366F1);
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 12px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .waterfall-bar:hover {
+            transform: scaleY(1.05);
+            filter: brightness(1.1);
+        }
+        
+        .waterfall-bar.negative {
+            background: linear-gradient(180deg, var(--danger), #DC2626);
+        }
+        
+        .waterfall-bar.success {
+            background: linear-gradient(180deg, var(--success), #059669);
+        }
+        
+        .waterfall-label {
+            position: absolute;
+            top: -30px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), #6366F1);
+        }
+        
+        .timeline-items {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .timeline-item {
+            background: white;
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            padding: 16px 20px;
+            text-align: center;
+            min-width: 140px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            z-index: 1;
+        }
+        
+        .timeline-item strong {
+            display: block;
+            color: var(--primary);
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .timeline-item span {
+            font-size: 12px;
+            color: var(--gray);
+            display: block;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent), #6366F1);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(59, 130, 246, 0.4);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge.success {
+            background: var(--success);
+        }
+        
+        .badge.warning {
+            background: var(--warning);
+        }
+        
+        .case-study {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 16px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        .case-study-metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        
+        .case-study-metric:last-child {
+            border-bottom: none;
+        }
+        
+        .protection-shield {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.3);
+        }
+        
+        .protection-item {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+        
+        .protection-item::before {
+            content: '✓';
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-weight: 700;
+        }
+        
+        .executive-profile {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 32px;
+            margin: 32px 0;
+            padding: 32px;
+            background: var(--light);
+            border-radius: 16px;
+        }
+        
+        .executive-photo {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent), #6366F1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+            font-weight: 700;
+        }
+        
+        .executive-details h4 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .executive-details p {
+            color: var(--gray);
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        
+        .executive-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+        
+        .executive-stat {
+            text-align: center;
+        }
+        
+        .executive-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .executive-stat-label {
+            font-size: 11px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: EXECUTIVE SUMMARY -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <div class="highlight-box">
+        ⭐ 45% Projected IRR with 8% Protected Floor
+    </div>
+    
+    <h1>The Safe Way to Earn<br/>Venture Returns</h1>
+    <h2>Real Assets + Technology Upside + Protected Downside = Your Optimal Risk-Adjusted Return</h2>
+    
+    <div style="background: var(--light); padding: 32px; border-radius: 16px; margin: 32px 0;">
+        <p style="font-size: 16px; line-height: 1.8; color: var(--text); font-style: italic;">
+            "We are a company that specializes in building wealth through high-velocity BRRRR real estate deals, 
+            leveraged through our proprietary $7M+ technology platform - increasing speed, accuracy, team efficiency, 
+            and margins. With a proven track record of 125 units completed, we are transforming real estate investment 
+            through technology and systematic execution."
+        </p>
+    </div>
+    
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th style="text-align: center;">Conservative Promise</th>
+                <th style="text-align: center;">Projected Returns</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>LP IRR</strong></td>
+                <td style="text-align: center; font-size: 20px; color: var(--secondary);">15%</td>
+                <td style="text-align: center; font-size: 20px; color: var(--accent); font-weight: 700;">45%</td>
+            </tr>
+            <tr>
+                <td><strong>LP Multiple</strong></td>
+                <td style="text-align: center; font-size: 20px; color: var(--secondary);">2.0x</td>
+                <td style="text-align: center; font-size: 20px; color: var(--accent); font-weight: 700;">6.88x</td>
+            </tr>
+            <tr>
+                <td><strong>Total Return</strong></td>
+                <td style="text-align: center; font-size: 20px; color: var(--secondary);">$3.82M</td>
+                <td style="text-align: center; font-size: 20px; color: var(--accent); font-weight: 700;">$13.15M</td>
+            </tr>
+            <tr style="background: #F0F9FF;">
+                <td><strong>Preferred Return</strong></td>
+                <td style="text-align: center;" colspan="2"><span class="badge success">8% Annually Protected</span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="three-pillars">
+        <div class="pillar-card">
+            <div class="pillar-icon">📊</div>
+            <h4>Operating Cash Flow</h4>
+            <div style="font-size: 24px; font-weight: 700; color: var(--accent); margin: 12px 0;">$5.25M</div>
+            <p style="font-size: 13px; color: var(--gray);">324 properties generating $500/mo each</p>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-icon">💻</div>
+            <h4>Technology Exit</h4>
+            <div style="font-size: 24px; font-weight: 700; color: var(--accent); margin: 12px 0;">$8.64M</div>
+            <p style="font-size: 13px; color: var(--gray);">PropTech SaaS platform sale Year 3</p>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-icon">🏢</div>
+            <h4>Portfolio Sale</h4>
+            <div style="font-size: 24px; font-weight: 700; color: var(--accent); margin: 12px 0;">$7.75M</div>
+            <p style="font-size: 13px; color: var(--gray);">$46.33M stabilized portfolio exit</p>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 1 of 13</div>
+</div>
+
+<!-- SLIDE 2: THE OPPORTUNITY -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>The Opportunity:<br/>Cleveland's Perfect Storm</h1>
+    <h2>15%+ cap rates, proven BRRRR model, and technology advantage create unprecedented returns</h2>
+    
+    <div class="metric-grid">
+        <div class="metric-card">
+            <div class="metric-value">15%+</div>
+            <div class="metric-label">Cap Rates</div>
+            <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">2.5x National Average</p>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">$77K</div>
+            <div class="metric-label">Duplex Price</div>
+            <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">70% Below National</p>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">1.47%</div>
+            <div class="metric-label">Rent Ratio</div>
+            <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">2.1x National Average</p>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">∞</div>
+            <div class="metric-label">Cash-on-Cash</div>
+            <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">Post-Refinance</p>
+        </div>
+    </div>
+    
+    <h3 style="margin-top: 40px;">Market Comparison Analysis</h3>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Market</th>
+                <th>Entry Price</th>
+                <th>Cap Rate</th>
+                <th>Rent Ratio</th>
+                <th>Why Cleveland Wins</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background: #F0F9FF;">
+                <td><strong>Cleveland</strong> <span class="badge">TARGET</span></td>
+                <td><strong>$77,000</strong></td>
+                <td><strong style="color: var(--success);">15%+</strong></td>
+                <td><strong>1.47%</strong></td>
+                <td><strong style="color: var(--accent);">Optimal BRRRR</strong></td>
+            </tr>
+            <tr>
+                <td>Detroit</td>
+                <td>$65,000</td>
+                <td>13%</td>
+                <td>1.2%</td>
+                <td>Higher crime, less stable</td>
+            </tr>
+            <tr>
+                <td>Memphis</td>
+                <td>$95,000</td>
+                <td>11%</td>
+                <td>1.0%</td>
+                <td>More expensive, lower yield</td>
+            </tr>
+            <tr>
+                <td>Indianapolis</td>
+                <td>$125,000</td>
+                <td>9%</td>
+                <td>0.9%</td>
+                <td>Too pricey for BRRRR</td>
+            </tr>
+            <tr>
+                <td>National Average</td>
+                <td>$250,000+</td>
+                <td>6-8%</td>
+                <td>0.7%</td>
+                <td>Can't achieve infinite returns</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 style="margin-top: 40px;">The BRRRR Machine: How $35K Creates 9 Properties</h3>
+    <div class="timeline">
+        <div class="timeline-items">
+            <div class="timeline-item">
+                <strong>Month 1</strong>
+                <span>Buy: $35K</span>
+            </div>
+            <div class="timeline-item">
+                <strong>Month 2-3</strong>
+                <span>Rehab: $15K</span>
+            </div>
+            <div class="timeline-item">
+                <strong>Month 4</strong>
+                <span>Rent: $1,050/unit</span>
+            </div>
+            <div class="timeline-item">
+                <strong>Month 6</strong>
+                <span>Refinance: 100%</span>
+            </div>
+            <div class="timeline-item" style="background: var(--accent); color: white; border-color: var(--accent);">
+                <strong>Month 7+</strong>
+                <span>Repeat 9x</span>
+            </div>
+        </div>
+    </div>
+    
+    <div style="background: var(--light); padding: 32px; border-radius: 16px; margin-top: 40px;">
+        <h4 style="margin-bottom: 20px;">Target Property Profile</h4>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+            <div>
+                <p style="font-size: 14px; color: var(--gray); margin-bottom: 8px;">Purchase + Rehab</p>
+                <p style="font-size: 24px; font-weight: 700; color: var(--primary);">$77K + $15K</p>
+            </div>
+            <div>
+                <p style="font-size: 14px; color: var(--gray); margin-bottom: 8px;">After Repair Value</p>
+                <p style="font-size: 24px; font-weight: 700; color: var(--primary);">$143,000</p>
+            </div>
+            <div>
+                <p style="font-size: 14px; color: var(--gray); margin-bottom: 8px;">Monthly Cash Flow</p>
+                <p style="font-size: 24px; font-weight: 700; color: var(--success);">$500 net</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 2 of 13</div>
+</div>
+
+<!-- SLIDE 3: USE OF FUNDS - PROGRESS BARS ONLY -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Where Your $1.91M<br/>Investment Goes</h1>
+    <h2>Strategic capital allocation designed for maximum efficiency and returns</h2>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;">
+        <div>
+            <h3 style="margin-bottom: 24px;">Capital Allocation Breakdown</h3>
+            <div style="background: white; border-radius: 16px; padding: 32px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+                <div style="margin-bottom: 28px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 24px; height: 24px; background: #3B82F6; border-radius: 4px; margin-right: 12px;"></div>
+                            <span style="font-weight: 600; font-size: 15px;">Working Capital</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: 700; font-size: 22px;">66%</div>
+                            <div style="color: #64748B; font-size: 14px;">$1.26M</div>
+                        </div>
+                    </div>
+                    <div style="background: #F0F9FF; border-radius: 8px; height: 44px; overflow: hidden;">
+                        <div style="width: 66%; height: 100%; background: linear-gradient(90deg, #3B82F6, #60A5FA); display: flex; align-items: center; padding-left: 14px;">
+                            <span style="color: white; font-weight: 600; font-size: 13px;">18 properties/quarter @ $35K</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 28px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 24px; height: 24px; background: #6366F1; border-radius: 4px; margin-right: 12px;"></div>
+                            <span style="font-weight: 600; font-size: 15px;">PropTech Development</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: 700; font-size: 22px;">26%</div>
+                            <div style="color: #64748B; font-size: 14px;">$500K</div>
+                        </div>
+                    </div>
+                    <div style="background: #F0F9FF; border-radius: 8px; height: 44px; overflow: hidden;">
+                        <div style="width: 26%; height: 100%; background: linear-gradient(90deg, #6366F1, #818CF8); display: flex; align-items: center; padding-left: 14px;">
+                            <span style="color: white; font-weight: 600; font-size: 13px;">SaaS to 600 users</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 28px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 24px; height: 24px; background: #10B981; border-radius: 4px; margin-right: 12px;"></div>
+                            <span style="font-weight: 600; font-size: 15px;">Operating Reserves</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: 700; font-size: 22px;">8%</div>
+                            <div style="color: #64748B; font-size: 14px;">$150K</div>
+                        </div>
+                    </div>
+                    <div style="background: #F0F9FF; border-radius: 8px; height: 44px; overflow: hidden;">
+                        <div style="width: 8%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399);"></div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 36px; padding-top: 36px; border-top: 2px solid #E2E8F0;">
+                    <div style="font-size: 14px; color: #64748B; margin-bottom: 8px;">Total Fund Size</div>
+                    <div style="font-size: 40px; font-weight: 700; color: #0F172A;">$1.91M</div>
+                    <div style="font-size: 16px; color: #3B82F6; font-weight: 600; margin-top: 8px;">Creates 324 Properties</div>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <div style="margin-bottom: 32px;">
+                <h4 style="color: #3B82F6; margin-bottom: 12px;">Working Capital: $1.26M (66%)</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0;">✓ 18 properties per quarter @ $35K each</li>
+                    <li style="padding: 8px 0;">✓ Capital recycled every 6 months via refinance</li>
+                    <li style="padding: 8px 0;">✓ Creates 324 properties over fund life</li>
+                    <li style="padding: 8px 0;">✓ Same capital creates 9x leverage through BRRRR</li>
+                </ul>
+            </div>
+            
+            <div style="margin-bottom: 32px;">
+                <h4 style="color: #6366F1; margin-bottom: 12px;">PropTech Commercialization: $500K (26%)</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0;">✓ Complete SaaS product development</li>
+                    <li style="padding: 8px 0;">✓ Marketing & customer acquisition</li>
+                    <li style="padding: 8px 0;">✓ Scaling to 600 users</li>
+                    <li style="padding: 8px 0;">✓ Creates $8.64M exit value (17x return)</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 style="color: #10B981; margin-bottom: 12px;">Operating Reserve: $150K (8%)</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0;">✓ 6 months operating expenses</li>
+                    <li style="padding: 8px 0;">✓ Bridge loan reserves</li>
+                    <li style="padding: 8px 0;">✓ Unexpected costs buffer</li>
+                    <li style="padding: 8px 0;">✓ Ensures smooth execution</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <h3>First 90 Days: Building Momentum</h3>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Action</th>
+                <th>Capital Deployed</th>
+                <th>Properties</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Month 1</strong></td>
+                <td>Initial acquisitions</td>
+                <td>$210,000</td>
+                <td>6 properties</td>
+                <td><span class="badge warning">Under renovation</span></td>
+            </tr>
+            <tr>
+                <td><strong>Month 2</strong></td>
+                <td>Second wave</td>
+                <td>$210,000</td>
+                <td>6 properties</td>
+                <td><span class="badge">First rehabs complete</span></td>
+            </tr>
+            <tr>
+                <td><strong>Month 3</strong></td>
+                <td>Third wave</td>
+                <td>$210,000</td>
+                <td>6 properties</td>
+                <td><span class="badge success">First tenants placed</span></td>
+            </tr>
+            <tr style="background: #F8FAFC;">
+                <td><strong>Total Q1</strong></td>
+                <td><strong>Momentum built</strong></td>
+                <td><strong>$630,000</strong></td>
+                <td><strong>18 properties</strong></td>
+                <td><strong>System proven</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 3 of 13</div>
+</div>
+
+<!-- SLIDE 4: LEADERSHIP TEAM -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Leadership Team:<br/>$7.5M+ Combined Experience</h1>
+    <h2>Serial entrepreneurs with proven execution in real estate and technology</h2>
+    
+    <div class="executive-profile">
+        <div class="executive-photo">JJ</div>
+        <div class="executive-details">
+            <h4>Jake Johnston</h4>
+            <p style="color: var(--accent); font-weight: 600; margin-bottom: 12px;">CEO & Founder</p>
+            <p style="line-height: 1.6;">
+                Serial entrepreneur turned real estate innovator. Jake's journey from building a $750K/year video production 
+                empire to orchestrating $7.5M+ in real estate transactions demonstrates his ability to scale businesses through 
+                technology and systems. His self-taught programming skills created a $7M+ proprietary platform that serves as 
+                our competitive moat.
+            </p>
+            <div class="executive-stats">
+                <div class="executive-stat">
+                    <div class="executive-stat-value">125</div>
+                    <div class="executive-stat-label">Units Completed</div>
+                </div>
+                <div class="executive-stat">
+                    <div class="executive-stat-value">$1M+</div>
+                    <div class="executive-stat-label">Platform Investment</div>
+                </div>
+                <div class="executive-stat">
+                    <div class="executive-stat-value">3.5x</div>
+                    <div class="executive-stat-label">Speed Improvement</div>
+                </div>
+                <div class="executive-stat">
+                    <div class="executive-stat-value">$7.5M+</div>
+                    <div class="executive-stat-label">RE Transactions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="executive-profile">
+        <div class="executive-photo">CB</div>
+        <div class="executive-details">
+            <h4>Cole Beeby</h4>
+            <p style="color: var(--accent); font-weight: 600; margin-bottom: 12px;">Chief Operating Officer</p>
+            <p style="line-height: 1.6;">
+                Decade of real estate operational excellence. Cole's management of 150+ units valued at $7.5M+ with consistent 
+                80%+ occupancy rates brings deep operational expertise. As a top-performing sales manager overseeing $3M+ in 
+                annual revenue, Cole brings proven leadership and operational excellence.
+            </p>
+            <div class="executive-stats">
+                <div class="executive-stat">
+                    <div class="executive-stat-value">150+</div>
+                    <div class="executive-stat-label">Units Managed</div>
+                </div>
+                <div class="executive-stat">
+                    <div class="executive-stat-value">$7.5M+</div>
+                    <div class="executive-stat-label">Portfolio Value</div>
+                </div>
+                <div class="executive-stat">
+                    <div class="executive-stat-value">80%+</div>
+                    <div class="executive-stat-label">Occupancy Rate</div>
+                </div>
+                <div class="executive-stat">
+                    <div class="executive-stat-value">8</div>
+                    <div class="executive-stat-label">Personal Portfolio</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h3 style="margin-top: 40px;">Proven BRRRR Case Studies</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div class="case-study">
+            <div>
+                <h4>Cleveland Duplex BRRRR</h4>
+                <div class="case-study-metric">
+                    <span>Purchase Price</span>
+                    <strong>$52,000</strong>
+                </div>
+                <div class="case-study-metric">
+                    <span>Rehab Cost</span>
+                    <strong>$18,000</strong>
+                </div>
+                <div class="case-study-metric">
+                    <span>After Repair Value</span>
+                    <strong>$135,000</strong>
+                </div>
+                <div class="case-study-metric">
+                    <span>Monthly Rent</span>
+                    <strong>$1,400</strong>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <div style="background: var(--success); color: white; padding: 16px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 24px; font-weight: 700;">15.6%</div>
+                    <div style="font-size: 12px;">Cap Rate</div>
+                </div>
+                <div style="margin-top: 12px; text-align: center;">
+                    <div style="font-size: 20px; font-weight: 700; color: var(--primary);">$720/mo</div>
+                    <div style="font-size: 12px; color: var(--gray);">Infinite Cash Flow</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="case-study">
+            <div>
+                <h4>Cleveland Triplex BRRRR</h4>
+                <div class="case-study-metric">
+                    <span>Purchase Price</span>
+                    <strong>$68,000</strong>
+                </div>
+                <div class="case-study-metric">
+                    <span>Rehab Cost</span>
+                    <strong>$22,000</strong>
+                </div>
+                <div class="case-study-metric">
+                    <span>After Repair Value</span>
+                    <strong>$155,000</strong>
+                </div>
+                <div class="case-study-metric">
+                    <span>Monthly Rent</span>
+                    <strong>$1,950</strong>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <div style="background: var(--success); color: white; padding: 16px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 24px; font-weight: 700;">17.2%</div>
+                    <div style="font-size: 12px;">Cap Rate</div>
+                </div>
+                <div style="margin-top: 12px; text-align: center;">
+                    <div style="font-size: 20px; font-weight: 700; color: var(--primary);">$1,100/mo</div>
+                    <div style="font-size: 12px; color: var(--gray);">Infinite Cash Flow</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 4 of 13</div>
+</div>
+
+<!-- SLIDE 5: TECHNOLOGY PLATFORM -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>The $7M+ Technology Platform:<br/>Our Competitive Moat</h1>
+    <h2>3+ years, $1M+ investment, 125 properties proven = Uncopyable advantage</h2>
+    
+    <div class="metric-grid">
+        <div class="metric-card">
+            <div class="metric-value">3.5x</div>
+            <div class="metric-label">Faster Execution</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">88%</div>
+            <div class="metric-label">Task Automation</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">99.2%</div>
+            <div class="metric-label">Accuracy Rate</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">21min</div>
+            <div class="metric-label">Deal Analysis Time</div>
+        </div>
+    </div>
+    
+    <h3 style="margin-top: 40px;">Before vs. After Transformation</h3>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Before Our Platform</th>
+                <th>With Our Platform</th>
+                <th>Improvement</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Software Tools</strong></td>
+                <td>15+ different apps</td>
+                <td>One integrated platform</td>
+                <td><span class="badge success">93% reduction</span></td>
+            </tr>
+            <tr>
+                <td><strong>Monthly Cost</strong></td>
+                <td>$1,000+</td>
+                <td>$299</td>
+                <td><span class="badge success">70% savings</span></td>
+            </tr>
+            <tr>
+                <td><strong>Deal Analysis</strong></td>
+                <td>4-6 hours</td>
+                <td>21 minutes</td>
+                <td><span class="badge success">11x faster</span></td>
+            </tr>
+            <tr>
+                <td><strong>Error Rate</strong></td>
+                <td>30%</td>
+                <td>0.8%</td>
+                <td><span class="badge success">97% more accurate</span></td>
+            </tr>
+            <tr>
+                <td><strong>Team Coordination</strong></td>
+                <td>Manual chaos</td>
+                <td>Automated workflows</td>
+                <td><span class="badge success">88% automated</span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 style="margin-top: 40px;">SaaS Commercialization Path to $8.64M Exit</h3>
+    <div class="waterfall-chart">
+        <div class="waterfall-bar" style="height: 30%;">
+            <div class="waterfall-label">Year 1</div>
+            <div>200 Users</div>
+            <div>$718K ARR</div>
+        </div>
+        <div class="waterfall-bar" style="height: 50%;">
+            <div class="waterfall-label">Year 2</div>
+            <div>400 Users</div>
+            <div>$1.44M ARR</div>
+        </div>
+        <div class="waterfall-bar" style="height: 70%;">
+            <div class="waterfall-label">Year 3</div>
+            <div>600 Users</div>
+            <div>$2.16M ARR</div>
+        </div>
+        <div class="waterfall-bar success" style="height: 100%;">
+            <div class="waterfall-label">EXIT</div>
+            <div style="font-size: 20px; font-weight: 700;">$8.64M</div>
+            <div>4x Multiple</div>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 5 of 13</div>
+</div>
+
+<!-- SLIDE 6: EXECUTION STRATEGY -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Execution Strategy:<br/>From 0 to 324 Properties</h1>
+    <h2>Technology + Team + Systems = Scalable execution machine</h2>
+    
+    <h3>Portfolio Scaling Timeline</h3>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Period</th>
+                <th>Properties Acquired</th>
+                <th>Total Portfolio</th>
+                <th>Monthly Cash Flow</th>
+                <th>Portfolio Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Q1-Q2 Year 1</td>
+                <td>36</td>
+                <td>36</td>
+                <td>$0</td>
+                <td>$0</td>
+            </tr>
+            <tr>
+                <td>Q3-Q4 Year 1</td>
+                <td>36</td>
+                <td>72</td>
+                <td>$18,000</td>
+                <td>$5.15M</td>
+            </tr>
+            <tr>
+                <td>Year 2</td>
+                <td>72</td>
+                <td>144</td>
+                <td>$54,000</td>
+                <td>$15.44M</td>
+            </tr>
+            <tr>
+                <td>Year 3</td>
+                <td>72</td>
+                <td>216</td>
+                <td>$90,000</td>
+                <td>$25.74M</td>
+            </tr>
+            <tr>
+                <td>Year 4</td>
+                <td>72</td>
+                <td>288</td>
+                <td>$126,000</td>
+                <td>$36.04M</td>
+            </tr>
+            <tr style="background: var(--light);">
+                <td><strong>Year 4.5</strong></td>
+                <td><strong>36</strong></td>
+                <td><strong>324</strong></td>
+                <td><strong>$144,000</strong></td>
+                <td><strong>$46.33M</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div style="background: linear-gradient(135deg, var(--accent), #6366F1); color: white; padding: 32px; border-radius: 16px; margin-top: 40px;">
+        <h3 style="color: white; text-align: center;">The Magic of Capital Recycling</h3>
+        <p style="text-align: center; font-size: 24px; margin: 20px 0;">
+            $1.26M Working Capital → 324 Properties
+        </p>
+        <p style="text-align: center; opacity: 0.9;">
+            How? Same $35K creates new property every 6 months through refinancing.<br/>
+            Result: Each $35K creates 9 properties over fund life.
+        </p>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 6 of 13</div>
+</div>
+
+<!-- SLIDE 7: FINANCIAL PROJECTIONS -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Creating $26.2M<br/>from $1.91M</h1>
+    <h2>Three revenue streams combine to deliver 13.7x value multiplication</h2>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;">
+        <div>
+            <h3 style="margin-bottom: 24px;">Value Creation Sources</h3>
+            <div style="background: white; border-radius: 16px; padding: 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+                <div style="margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 20px; height: 20px; background: #10B981; border-radius: 4px; margin-right: 10px;"></div>
+                            <span style="font-weight: 600;">Cash Flow</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: 700; font-size: 18px;">20%</div>
+                            <div style="color: var(--gray); font-size: 14px;">$5.25M</div>
+                        </div>
+                    </div>
+                    <div style="background: #F0F9FF; border-radius: 8px; height: 32px; overflow: hidden;">
+                        <div style="width: 20%; height: 100%; background: #10B981;"></div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 20px; height: 20px; background: #3B82F6; border-radius: 4px; margin-right: 10px;"></div>
+                            <span style="font-weight: 600;">PropTech Exit</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: 700; font-size: 18px;">33%</div>
+                            <div style="color: var(--gray); font-size: 14px;">$8.64M</div>
+                        </div>
+                    </div>
+                    <div style="background: #F0F9FF; border-radius: 8px; height: 32px; overflow: hidden;">
+                        <div style="width: 33%; height: 100%; background: #3B82F6;"></div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 20px; height: 20px; background: #6366F1; border-radius: 4px; margin-right: 10px;"></div>
+                            <span style="font-weight: 600;">Portfolio Sale</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: 700; font-size: 18px;">30%</div>
+                            <div style="color: var(--gray); font-size: 14px;">$7.75M</div>
+                        </div>
+                    </div>
+                    <div style="background: #F0F9FF; border-radius: 8px; height: 32px; overflow: hidden;">
+                        <div style="width: 30%; height: 100%; background: #6366F1;"></div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 20px; height: 20px; background: #F59E0B; border-radius: 4px; margin-right: 10px;"></div>
+                            <span style="font-weight: 600;">Value Growth</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-weight: 700; font-size: 18px;">17%</div>
+                            <div style="color: var(--gray); font-size: 14px;">$4.56M</div>
+                        </div>
+                    </div>
+                    <div style="background: #F0F9FF; border-radius: 8px; height: 32px; overflow: hidden;">
+                        <div style="width: 17%; height: 100%; background: #F59E0B;"></div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 24px; padding-top: 24px; border-top: 2px solid #E2E8F0;">
+                    <div style="font-size: 14px; color: var(--gray);">Total Value Created</div>
+                    <div style="font-size: 32px; font-weight: 700; color: var(--primary);">$26.2M</div>
+                    <div style="font-size: 16px; color: var(--accent); font-weight: 600;">13.7x Multiple</div>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <h3>5-Year Value Waterfall</h3>
+            <div class="waterfall-chart">
+                <div class="waterfall-bar negative" style="height: 20%;">
+                    <div class="waterfall-label">Investment</div>
+                    <div>($1.91M)</div>
+                </div>
+                <div class="waterfall-bar" style="height: 40%;">
+                    <div class="waterfall-label">Cash Flow</div>
+                    <div>+$5.25M</div>
+                </div>
+                <div class="waterfall-bar" style="height: 65%;">
+                    <div class="waterfall-label">PropTech</div>
+                    <div>+$8.64M</div>
+                </div>
+                <div class="waterfall-bar" style="height: 85%;">
+                    <div class="waterfall-label">Portfolio</div>
+                    <div>+$7.75M</div>
+                </div>
+                <div class="waterfall-bar success" style="height: 100%;">
+                    <div class="waterfall-label">TOTAL</div>
+                    <div style="font-size: 20px;">$26.2M</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 7 of 13</div>
+</div>
+
+<!-- NEW SLIDE: DETAILED FINANCIAL MODEL -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Detailed Financial Model:<br/>Month-by-Month Execution</h1>
+    <h2>Conservative underwriting with multiple revenue streams creating exceptional returns</h2>
+    
+    <h3>Year 1 Quarterly Cash Flow Progression</h3>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Quarter</th>
+                <th>Properties Acquired</th>
+                <th>Properties Stabilized</th>
+                <th>Monthly Revenue</th>
+                <th>Monthly Expenses</th>
+                <th>Net Cash Flow</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Q1 2026</strong></td>
+                <td>18</td>
+                <td>0</td>
+                <td>$0</td>
+                <td>($25,000)</td>
+                <td style="color: var(--danger);">($25,000)</td>
+            </tr>
+            <tr>
+                <td><strong>Q2 2026</strong></td>
+                <td>18</td>
+                <td>18</td>
+                <td>$18,900</td>
+                <td>($28,000)</td>
+                <td style="color: var(--danger);">($9,100)</td>
+            </tr>
+            <tr>
+                <td><strong>Q3 2026</strong></td>
+                <td>18</td>
+                <td>36</td>
+                <td>$37,800</td>
+                <td>($31,000)</td>
+                <td style="color: var(--success);">$6,800</td>
+            </tr>
+            <tr style="background: #F0F9FF;">
+                <td><strong>Q4 2026</strong></td>
+                <td>18</td>
+                <td>54</td>
+                <td>$56,700</td>
+                <td>($34,000)</td>
+                <td style="color: var(--success);"><strong>$22,700</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px;">
+        <div>
+            <h3>Sensitivity Analysis: Occupancy Impact</h3>
+            <table class="table-modern">
+                <thead>
+                    <tr>
+                        <th>Occupancy Rate</th>
+                        <th>Annual Cash Flow</th>
+                        <th>LP IRR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #F0FDF4;">
+                        <td><strong>95% (Base)</strong></td>
+                        <td>$1,944,000</td>
+                        <td style="color: var(--success);"><strong>45%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>85%</td>
+                        <td>$1,739,000</td>
+                        <td>38%</td>
+                    </tr>
+                    <tr>
+                        <td>75%</td>
+                        <td>$1,534,000</td>
+                        <td>31%</td>
+                    </tr>
+                    <tr>
+                        <td>65%</td>
+                        <td>$1,329,000</td>
+                        <td>24%</td>
+                    </tr>
+                    <tr style="background: #FFF7ED;">
+                        <td><strong>55% (Stress)</strong></td>
+                        <td>$1,124,000</td>
+                        <td><strong>15%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div>
+            <h3>Revenue Build Assumptions</h3>
+            <div style="background: var(--light); padding: 24px; border-radius: 12px;">
+                <h4 style="color: var(--primary); margin-bottom: 16px;">Per Property Economics</h4>
+                <div style="display: grid; gap: 12px; font-size: 14px;">
+                    <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 6px;">
+                        <span>Gross Rent (2 units)</span>
+                        <strong>$2,100/mo</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 6px;">
+                        <span>Operating Expenses (30%)</span>
+                        <strong>($630/mo)</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 6px;">
+                        <span>Debt Service</span>
+                        <strong>($970/mo)</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 8px; background: #F0F9FF; border-radius: 6px; border: 2px solid var(--accent);">
+                        <span><strong>Net Cash Flow</strong></span>
+                        <strong style="color: var(--accent);">$500/mo</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h3 style="margin-top: 40px;">Capital Deployment & Recycling Schedule</h3>
+    <div style="background: white; padding: 24px; border-radius: 12px; border: 2px solid var(--accent);">
+        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; text-align: center;">
+            <div>
+                <div style="font-size: 12px; color: var(--gray); margin-bottom: 8px;">Month 1</div>
+                <div style="font-size: 18px; font-weight: 700; color: var(--primary);">$210K</div>
+                <div style="font-size: 11px; color: var(--gray);">Deploy</div>
+            </div>
+            <div>
+                <div style="font-size: 12px; color: var(--gray); margin-bottom: 8px;">Month 2-3</div>
+                <div style="font-size: 18px; font-weight: 700; color: var(--warning);">Rehab</div>
+                <div style="font-size: 11px; color: var(--gray);">$90K</div>
+            </div>
+            <div>
+                <div style="font-size: 12px; color: var(--gray); margin-bottom: 8px;">Month 4</div>
+                <div style="font-size: 18px; font-weight: 700; color: var(--success);">Rent</div>
+                <div style="font-size: 11px; color: var(--gray);">Stabilize</div>
+            </div>
+            <div>
+                <div style="font-size: 12px; color: var(--gray); margin-bottom: 8px;">Month 6</div>
+                <div style="font-size: 18px; font-weight: 700; color: var(--accent);">Refi</div>
+                <div style="font-size: 11px; color: var(--gray);">100% out</div>
+            </div>
+            <div>
+                <div style="font-size: 12px; color: var(--gray); margin-bottom: 8px;">Month 7</div>
+                <div style="font-size: 18px; font-weight: 700; color: var(--primary);">$210K</div>
+                <div style="font-size: 11px; color: var(--gray);">Redeploy</div>
+            </div>
+            <div>
+                <div style="font-size: 12px; color: var(--gray); margin-bottom: 8px;">∞</div>
+                <div style="font-size: 18px; font-weight: 700; color: var(--success);">Repeat</div>
+                <div style="font-size: 11px; color: var(--gray);">9x per $35K</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 8 of 18</div>
+</div>
+
+<!-- NEW SLIDE: COMPETITIVE ANALYSIS -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Technology Competitive Advantage:<br/>Why Others Can't Compete</h1>
+    <h2>Our $7M+ platform creates an uncopyable moat that transforms unit economics</h2>
+    
+    <div style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 32px; border-radius: 16px; margin-bottom: 32px;">
+        <h3 style="color: white; text-align: center; margin-bottom: 24px;">The Technology Advantage Nobody Can Match</h3>
+        <p style="text-align: center; font-size: 18px; line-height: 1.6;">
+            While competitors use 15+ disconnected tools costing $1,000+/month with 30% error rates,<br/>
+            we've built ONE platform that does it all for $299/month with 99.2% accuracy.
+        </p>
+    </div>
+    
+    <h3>Head-to-Head: Us vs. Traditional BRRRR Funds</h3>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Critical Success Factor</th>
+                <th>Traditional BRRRR Fund</th>
+                <th>Reverie with Technology</th>
+                <th>Our Advantage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Deal Analysis Speed</strong></td>
+                <td>4-6 hours per property</td>
+                <td>21 minutes</td>
+                <td><span class="badge success">11x Faster</span></td>
+            </tr>
+            <tr>
+                <td><strong>Properties Analyzed/Month</strong></td>
+                <td>50-100</td>
+                <td>500+</td>
+                <td><span class="badge success">5x More Deals</span></td>
+            </tr>
+            <tr>
+                <td><strong>Team Size Required</strong></td>
+                <td>25+ people</td>
+                <td>15 people</td>
+                <td><span class="badge success">40% Less Overhead</span></td>
+            </tr>
+            <tr>
+                <td><strong>Contractor Coordination</strong></td>
+                <td>Manual calls & texts</td>
+                <td>Automated scheduling</td>
+                <td><span class="badge success">88% Automated</span></td>
+            </tr>
+            <tr>
+                <td><strong>Financial Reporting</strong></td>
+                <td>Monthly lag</td>
+                <td>Real-time dashboard</td>
+                <td><span class="badge success">Instant Visibility</span></td>
+            </tr>
+            <tr>
+                <td><strong>Error Rate</strong></td>
+                <td>30% human error</td>
+                <td>0.8% system error</td>
+                <td><span class="badge success">97% More Accurate</span></td>
+            </tr>
+            <tr style="background: #F0F9FF;">
+                <td><strong>Cost Per Property Managed</strong></td>
+                <td>$1,200/month</td>
+                <td>$180/month</td>
+                <td><span class="badge success">85% Cost Reduction</span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 style="margin-top: 40px;">Why Competitors Can't Build This</h3>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+        <div style="text-align: center; background: var(--light); padding: 24px; border-radius: 12px;">
+            <div style="font-size: 36px; margin-bottom: 12px;">⏰</div>
+            <h4 style="color: var(--danger);">3+ Years</h4>
+            <p style="font-size: 13px; color: var(--gray);">Development time can't be compressed</p>
+        </div>
+        <div style="text-align: center; background: var(--light); padding: 24px; border-radius: 12px;">
+            <div style="font-size: 36px; margin-bottom: 12px;">💰</div>
+            <h4 style="color: var(--danger);">$7M+ Cost</h4>
+            <p style="font-size: 13px; color: var(--gray);">Replacement cost prohibitive</p>
+        </div>
+        <div style="text-align: center; background: var(--light); padding: 24px; border-radius: 12px;">
+            <div style="font-size: 36px; margin-bottom: 12px;">📊</div>
+            <h4 style="color: var(--danger);">125 Properties</h4>
+            <p style="font-size: 13px; color: var(--gray);">Real data others don't have</p>
+        </div>
+        <div style="text-align: center; background: var(--light); padding: 24px; border-radius: 12px;">
+            <div style="font-size: 36px; margin-bottom: 12px;">🔒</div>
+            <h4 style="color: var(--danger);">Proprietary IP</h4>
+            <p style="font-size: 13px; color: var(--gray);">Custom algorithms protected</p>
+        </div>
+    </div>
+    
+    <div style="background: white; border: 3px solid var(--accent); border-radius: 16px; padding: 32px; margin-top: 40px;">
+        <h3 style="text-align: center; color: var(--accent); margin-bottom: 24px;">The Technology Multiplier Effect</h3>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center;">
+            <div>
+                <div style="font-size: 48px; font-weight: 700; color: var(--primary);">3.5x</div>
+                <p style="color: var(--gray);">Faster execution means 3.5x more properties with same capital</p>
+            </div>
+            <div>
+                <div style="font-size: 48px; font-weight: 700; color: var(--accent);">$8.64M</div>
+                <p style="color: var(--gray);">Additional exit value from PropTech sale competitors don't have</p>
+            </div>
+            <div>
+                <div style="font-size: 48px; font-weight: 700; color: var(--success);">∞</div>
+                <p style="color: var(--gray);">Infinitely scalable without proportional team growth</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 9 of 18</div>
+</div>
+
+<!-- NEW SLIDE: INVESTOR ECONOMICS -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Your Personal Returns:<br/>Investment Level Economics</h1>
+    <h2>See exactly what different investment amounts return over the fund life</h2>
+    
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Investment Amount</th>
+                <th>Year 1</th>
+                <th>Year 2</th>
+                <th>Year 3</th>
+                <th>Year 4</th>
+                <th>Year 5 Exit</th>
+                <th>Total Return</th>
+                <th>Multiple</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>$100,000</strong></td>
+                <td>$0</td>
+                <td>$8,000</td>
+                <td>$52,000*</td>
+                <td>$8,000</td>
+                <td>$620,000</td>
+                <td style="color: var(--success);"><strong>$688,000</strong></td>
+                <td><strong>6.88x</strong></td>
+            </tr>
+            <tr style="background: #F0F9FF;">
+                <td><strong>$250,000</strong></td>
+                <td>$0</td>
+                <td>$20,000</td>
+                <td>$130,000*</td>
+                <td>$20,000</td>
+                <td>$1,550,000</td>
+                <td style="color: var(--success);"><strong>$1,720,000</strong></td>
+                <td><strong>6.88x</strong></td>
+            </tr>
+            <tr>
+                <td><strong>$500,000</strong></td>
+                <td>$0</td>
+                <td>$40,000</td>
+                <td>$260,000*</td>
+                <td>$40,000</td>
+                <td>$3,100,000</td>
+                <td style="color: var(--success);"><strong>$3,440,000</strong></td>
+                <td><strong>6.88x</strong></td>
+            </tr>
+            <tr style="background: #F0F9FF;">
+                <td><strong>$1,000,000</strong></td>
+                <td>$0</td>
+                <td>$80,000</td>
+                <td>$520,000*</td>
+                <td>$80,000</td>
+                <td>$6,200,000</td>
+                <td style="color: var(--success);"><strong>$6,880,000</strong></td>
+                <td><strong>6.88x</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 12px; color: var(--gray); margin-top: 8px;">*Year 3 includes PropTech exit distribution</p>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px;">
+        <div>
+            <h3>Quarterly Distribution Schedule</h3>
+            <div style="background: var(--light); padding: 24px; border-radius: 12px;">
+                <p style="font-size: 14px; margin-bottom: 16px;">Starting Month 15, you receive quarterly distributions:</p>
+                <table style="width: 100%; font-size: 14px;">
+                    <tr style="border-bottom: 1px solid #E2E8F0;">
+                        <td style="padding: 8px 0;">$100K Investment</td>
+                        <td style="text-align: right;"><strong>$2,000/quarter</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #E2E8F0;">
+                        <td style="padding: 8px 0;">$250K Investment</td>
+                        <td style="text-align: right;"><strong>$5,000/quarter</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #E2E8F0;">
+                        <td style="padding: 8px 0;">$500K Investment</td>
+                        <td style="text-align: right;"><strong>$10,000/quarter</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 0;">$1M Investment</td>
+                        <td style="text-align: right;"><strong>$20,000/quarter</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div>
+            <h3>Comparison to Alternatives</h3>
+            <div style="background: var(--light); padding: 24px; border-radius: 12px;">
+                <p style="font-size: 14px; margin-bottom: 16px;">$500K invested for 5 years:</p>
+                <div style="display: grid; gap: 12px;">
+                    <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 6px;">
+                        <span>S&P 500 (10% avg)</span>
+                        <span>$805,000</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 6px;">
+                        <span>REIT Index (12% avg)</span>
+                        <span>$881,000</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 8px; background: white; border-radius: 6px;">
+                        <span>Traditional RE Fund (15%)</span>
+                        <span>$1,005,000</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 8px; background: #F0F9FF; border-radius: 6px; border: 2px solid var(--accent);">
+                        <span><strong>Reverie Fund I (45%)</strong></span>
+                        <span style="color: var(--accent);"><strong>$3,440,000</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="background: linear-gradient(135deg, var(--accent), #6366F1); color: white; padding: 32px; border-radius: 16px; margin-top: 40px;">
+        <h3 style="color: white; text-align: center; margin-bottom: 24px;">After-Tax Considerations</h3>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center;">
+            <div>
+                <h4 style="color: white; opacity: 0.9; font-size: 14px; margin-bottom: 8px;">Long-Term Capital Gains</h4>
+                <div style="font-size: 24px; font-weight: 700;">20% Rate</div>
+                <p style="font-size: 13px; opacity: 0.8;">On portfolio sale proceeds</p>
+            </div>
+            <div>
+                <h4 style="color: white; opacity: 0.9; font-size: 14px; margin-bottom: 8px;">Depreciation Benefits</h4>
+                <div style="font-size: 24px; font-weight: 700;">Pass-Through</div>
+                <p style="font-size: 13px; opacity: 0.8;">Reduce taxable income</p>
+            </div>
+            <div>
+                <h4 style="color: white; opacity: 0.9; font-size: 14px; margin-bottom: 8px;">After-Tax Multiple</h4>
+                <div style="font-size: 24px; font-weight: 700;">~5.5x</div>
+                <p style="font-size: 13px; opacity: 0.8;">Still exceptional returns</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 10 of 18</div>
+</div>
+
+<!-- NEW SLIDE: WHY NOW URGENCY -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Why Now:<br/>The Perfect Storm Window</h1>
+    <h2>Three converging factors create a 12-18 month opportunity that won't repeat</h2>
+    
+    <div style="background: linear-gradient(135deg, var(--danger), #DC2626); color: white; padding: 32px; border-radius: 16px; margin-bottom: 32px;">
+        <h3 style="color: white; text-align: center; margin-bottom: 16px;">⚠️ TIME-SENSITIVE OPPORTUNITY ⚠️</h3>
+        <p style="text-align: center; font-size: 18px;">
+            The conditions creating 15%+ cap rates in Cleveland are temporary.<br/>
+            When institutional money discovers this arbitrage, the window closes forever.
+        </p>
+    </div>
+    
+    <h3>Factor 1: Interest Rate Environment Creating Unique Distress</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px;">
+        <div style="background: var(--light); padding: 24px; border-radius: 12px;">
+            <h4 style="color: var(--primary); margin-bottom: 16px;">Current Situation</h4>
+            <ul style="list-style: none; padding: 0; font-size: 14px;">
+                <li style="padding: 6px 0;">✓ Mom-and-pop landlords can't refinance at 7%+</li>
+                <li style="padding: 6px 0;">✓ Forced sellers creating 30% discounts</li>
+                <li style="padding: 6px 0;">✓ Banks pulling back from small multifamily</li>
+                <li style="padding: 6px 0;">✓ Properties sitting on market 90+ days</li>
+            </ul>
+        </div>
+        <div style="background: #FFF7ED; padding: 24px; border-radius: 12px; border: 2px solid var(--warning);">
+            <h4 style="color: var(--warning); margin-bottom: 16px;">What Changes in 12 Months</h4>
+            <ul style="list-style: none; padding: 0; font-size: 14px;">
+                <li style="padding: 6px 0;">❌ Fed cuts rates, refinancing becomes viable</li>
+                <li style="padding: 6px 0;">❌ Distressed sellers disappear</li>
+                <li style="padding: 6px 0;">❌ Competition returns to market</li>
+                <li style="padding: 6px 0;">❌ Prices increase 20-30%</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3>Factor 2: Cleveland Market Transformation Imminent</h3>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Catalyst</th>
+                <th>Timeline</th>
+                <th>Impact on Property Values</th>
+                <th>Why It Matters</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Intel $20B Factory</strong></td>
+                <td>Breaking ground 2025</td>
+                <td>+15-20% appreciation</td>
+                <td>3,000 high-paying jobs coming</td>
+            </tr>
+            <tr>
+                <td><strong>Cleveland Clinic Expansion</strong></td>
+                <td>2024-2026</td>
+                <td>+10% rental demand</td>
+                <td>5,000 new medical workers</td>
+            </tr>
+            <tr>
+                <td><strong>Downtown Revitalization</strong></td>
+                <td>$3.5B invested by 2027</td>
+                <td>+25% in target areas</td>
+                <td>Gentrification already starting</td>
+            </tr>
+            <tr style="background: #FFF7ED;">
+                <td><strong>Institutional Discovery</strong></td>
+                <td><span class="badge warning">12-18 months</span></td>
+                <td>Cap rates compress to 8%</td>
+                <td>Window closes permanently</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 style="margin-top: 32px;">Factor 3: Our Technology Platform Ready NOW</h3>
+    <div style="background: white; border: 3px solid var(--success); border-radius: 16px; padding: 32px;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;">
+            <div>
+                <div style="font-size: 36px; font-weight: 700; color: var(--success);">✓</div>
+                <h4>Platform Complete</h4>
+                <p style="font-size: 13px; color: var(--gray);">3 years development done</p>
+            </div>
+            <div>
+                <div style="font-size: 36px; font-weight: 700; color: var(--success);">✓</div>
+                <h4>Team in Place</h4>
+                <p style="font-size: 13px; color: var(--gray);">Ready to execute Day 1</p>
+            </div>
+            <div>
+                <div style="font-size: 36px; font-weight: 700; color: var(--success);">✓</div>
+                <h4>Pipeline Ready</h4>
+                <p style="font-size: 13px; color: var(--gray);">400+ properties identified</p>
+            </div>
+            <div>
+                <div style="font-size: 36px; font-weight: 700; color: var(--success);">✓</div>
+                <h4>Proven Model</h4>
+                <p style="font-size: 13px; color: var(--gray);">125 units completed</p>
+            </div>
+        </div>
+    </div>
+    
+    <div style="background: var(--primary); color: white; padding: 32px; border-radius: 16px; margin-top: 32px;">
+        <h3 style="color: white; text-align: center; margin-bottom: 24px;">First-Close Investor Benefits</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 12px;">Investors by December 31, 2025</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 6px 0;">✓ Reduced fees (1.5% vs 2% management)</li>
+                    <li style="padding: 6px 0;">✓ Priority on Fund II allocation</li>
+                    <li style="padding: 6px 0;">✓ Advisory board participation rights</li>
+                    <li style="padding: 6px 0;">✓ Best property selection advantage</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--warning); margin-bottom: 12px;">After December 31, 2025</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 6px 0;">❌ Standard 2% management fee</li>
+                    <li style="padding: 6px 0;">❌ No Fund II priority</li>
+                    <li style="padding: 6px 0;">❌ Limited governance rights</li>
+                    <li style="padding: 6px 0;">❌ May miss best properties</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 11 of 18</div>
+</div>
+
+<!-- NEW SLIDE: COMMON OBJECTIONS -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Addressing Your Concerns:<br/>We've Thought of Everything</h1>
+    <h2>Every risk has been analyzed, stress-tested, and mitigated</h2>
+    
+    <div style="background: var(--light); padding: 32px; border-radius: 16px; margin-bottom: 32px;">
+        <h3 style="color: var(--danger); margin-bottom: 20px;">❓ "What if you can't refinance the properties?"</h3>
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 32px;">
+            <div style="background: white; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 48px; font-weight: 700; color: var(--success);">3</div>
+                <p style="color: var(--gray);">Backup lenders identified</p>
+            </div>
+            <div>
+                <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px;">
+                    We have relationships with 3 different backup lenders including local banks, credit unions, and private lenders. 
+                    Our 75% LTV target is conservative - most lenders will go to 80%.
+                </p>
+                <p style="font-size: 14px; color: var(--gray);">
+                    <strong>Worst case:</strong> We hold the properties and collect $500/month cash flow per property. 
+                    At 162 properties (50% execution), that's $81,000/month or $972,000/year - still achieving our 15% minimum IRR.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div style="background: var(--light); padding: 32px; border-radius: 16px; margin-bottom: 32px;">
+        <h3 style="color: var(--danger); margin-bottom: 20px;">❓ "What if the Cleveland market crashes?"</h3>
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 32px;">
+            <div>
+                <h4 style="color: var(--primary); margin-bottom: 12px;">Cleveland's 2008 Performance Proves Resilience</h4>
+                <table style="width: 100%; font-size: 14px;">
+                    <tr style="border-bottom: 1px solid #E2E8F0;">
+                        <td style="padding: 8px;">National home price decline</td>
+                        <td style="text-align: right; color: var(--danger);"><strong>-31.8%</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #E2E8F0;">
+                        <td style="padding: 8px;">Cleveland home price decline</td>
+                        <td style="text-align: right;"><strong>-16.2%</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #E2E8F0;">
+                        <td style="padding: 8px;">Cleveland rental rates</td>
+                        <td style="text-align: right; color: var(--success);"><strong>+2.3%</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">B/C class occupancy</td>
+                        <td style="text-align: right; color: var(--success);"><strong>94%</strong></td>
+                    </tr>
+                </table>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 12px; text-align: center;">
+                <p style="font-size: 14px; color: var(--gray); margin-bottom: 12px;">Even with 30% value decline:</p>
+                <div style="font-size: 32px; font-weight: 700; color: var(--success);">22% IRR</div>
+                <p style="font-size: 13px; color: var(--gray);">Still beats market</p>
+            </div>
+        </div>
+    </div>
+    
+    <div style="background: var(--light); padding: 32px; border-radius: 16px; margin-bottom: 32px;">
+        <h3 style="color: var(--danger); margin-bottom: 20px;">❓ "What if the technology doesn't sell?"</h3>
+        <div style="background: white; padding: 24px; border-radius: 12px;">
+            <h4 style="color: var(--primary); margin-bottom: 16px;">Real Estate Alone Delivers Outstanding Returns</h4>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;">
+                <div>
+                    <p style="font-size: 13px; color: var(--gray); margin-bottom: 8px;">Returns WITHOUT Tech Exit</p>
+                    <div style="font-size: 28px; font-weight: 700; color: var(--accent);">42% IRR</div>
+                </div>
+                <div>
+                    <p style="font-size: 13px; color: var(--gray); margin-bottom: 8px;">LP Multiple</p>
+                    <div style="font-size: 28px; font-weight: 700; color: var(--accent);">6.4x</div>
+                </div>
+                <div>
+                    <p style="font-size: 13px; color: var(--gray); margin-bottom: 8px;">Total Return on $1M</p>
+                    <div style="font-size: 28px; font-weight: 700; color: var(--accent);">$6.4M</div>
+                </div>
+            </div>
+            <p style="font-size: 14px; color: var(--gray); margin-top: 20px; text-align: center;">
+                Plus: We keep the technology for Fund II, creating even better returns for the next fund.
+            </p>
+        </div>
+    </div>
+    
+    <div style="background: var(--light); padding: 32px; border-radius: 16px; margin-bottom: 32px;">
+        <h3 style="color: var(--danger); margin-bottom: 20px;">❓ "What if Jake or Cole leaves?"</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+            <div>
+                <h4 style="color: var(--primary); margin-bottom: 12px;">Key Person Protection</h4>
+                <ul style="list-style: none; padding: 0; font-size: 14px;">
+                    <li style="padding: 6px 0;">✓ $2M key person life insurance on both GPs</li>
+                    <li style="padding: 6px 0;">✓ Vesting schedule locks in GPs for 5 years</li>
+                    <li style="padding: 6px 0;">✓ Technology platform runs without founders</li>
+                    <li style="padding: 6px 0;">✓ COO already identified as succession</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--primary); margin-bottom: 12px;">GP Alignment</h4>
+                <ul style="list-style: none; padding: 0; font-size: 14px;">
+                    <li style="padding: 6px 0;">✓ GPs invested $1M+ of own money</li>
+                    <li style="padding: 6px 0;">✓ Personal guarantees on all bridge debt</li>
+                    <li style="padding: 6px 0;">✓ No GP distributions until LPs paid</li>
+                    <li style="padding: 6px 0;">✓ 90% of net worth tied to this fund</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div style="background: linear-gradient(135deg, var(--success), #059669); color: white; padding: 32px; border-radius: 16px;">
+        <h3 style="color: white; text-align: center; margin-bottom: 24px;">The Bottom Line on Risk</h3>
+        <div style="text-align: center;">
+            <p style="font-size: 18px; margin-bottom: 20px;">
+                Every single scenario we've modeled - even the worst case - still beats traditional real estate returns.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 32px;">
+                <div>
+                    <div style="font-size: 32px; font-weight: 700;">15%</div>
+                    <p style="font-size: 13px; opacity: 0.9;">Minimum IRR Protected</p>
+                </div>
+                <div>
+                    <div style="font-size: 32px; font-weight: 700;">8%</div>
+                    <p style="font-size: 13px; opacity: 0.9;">Preferred Return Floor</p>
+                </div>
+                <div>
+                    <div style="font-size: 32px; font-weight: 700;">50%</div>
+                    <p style="font-size: 13px; opacity: 0.9;">Execution Still Wins</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 12 of 18</div>
+</div>
+
+<!-- SLIDE 8: 5-YEAR ROADMAP -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>5-Year Strategic Roadmap:<br/>Clear Path to Exit</h1>
+    <h2>Three independent exit strategies ensure multiple paths to liquidity</h2>
+    
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Properties</th>
+                <th>Portfolio Value</th>
+                <th>Cash Flow/Mo</th>
+                <th>Key Milestones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Year 1</strong></td>
+                <td>72</td>
+                <td>$5.15M</td>
+                <td>$18,000</td>
+                <td>Fund launch, platform enhancement, team building</td>
+            </tr>
+            <tr>
+                <td><strong>Year 2</strong></td>
+                <td>144</td>
+                <td>$15.44M</td>
+                <td>$54,000</td>
+                <td>8% distributions begin, SaaS launch (200 users)</td>
+            </tr>
+            <tr style="background: #F0F9FF;">
+                <td><strong>Year 3</strong></td>
+                <td>216</td>
+                <td>$25.74M</td>
+                <td>$90,000</td>
+                <td><span class="badge success">PropTech Exit $8.64M</span></td>
+            </tr>
+            <tr>
+                <td><strong>Year 4</strong></td>
+                <td>288</td>
+                <td>$36.04M</td>
+                <td>$126,000</td>
+                <td>Portfolio optimization, prepare exit</td>
+            </tr>
+            <tr>
+                <td><strong>Year 4.5</strong></td>
+                <td>324</td>
+                <td>$46.33M</td>
+                <td>$144,000</td>
+                <td>Final acquisitions, exit preparation</td>
+            </tr>
+            <tr style="background: var(--light);">
+                <td><strong>Year 5</strong></td>
+                <td>324</td>
+                <td>$46.33M</td>
+                <td>$162,000</td>
+                <td><span class="badge">Portfolio Sale & Complete Exit</span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 8 of 13</div>
+</div>
+
+<!-- SLIDE 9: INVESTOR PROTECTIONS -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Your Investment<br/>is Protected</h1>
+    <h2>Multiple safeguards ensure downside protection while maintaining upside potential</h2>
+    
+    <div class="protection-shield">
+        <h3 style="color: white; text-align: center; margin-bottom: 32px;">Comprehensive Protection Framework</h3>
+        <div class="protection-item">
+            8% Preferred Return Paid First - You receive 8% annually before GPs get any profit
+        </div>
+        <div class="protection-item">
+            GP Personal Guarantees - GPs personally guarantee all bridge debt and preferred returns
+        </div>
+        <div class="protection-item">
+            Transparent Reporting - Quarterly reports, annual audits, real-time dashboard access
+        </div>
+        <div class="protection-item">
+            Proven Resilience - 50% execution still achieves 15% minimum IRR
+        </div>
+        <div class="protection-item">
+            Conservative Underwriting - 75% LTV max, 6-month reserves, stress-tested projections
+        </div>
+    </div>
+    
+    <h3 style="margin-top: 40px;">What If Scenarios - Your Downside Protection</h3>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Scenario</th>
+                <th>Impact</th>
+                <th>LP Returns</th>
+                <th>IRR</th>
+                <th>Your Protection</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background: #F0FDF4;">
+                <td><strong>Base Case</strong></td>
+                <td>Full execution</td>
+                <td>$13.15M</td>
+                <td>45%</td>
+                <td><span class="badge success">Maximum returns</span></td>
+            </tr>
+            <tr>
+                <td><strong>Tech Fails</strong></td>
+                <td>No PropTech exit</td>
+                <td>$12.31M</td>
+                <td>42%</td>
+                <td>Still exceptional</td>
+            </tr>
+            <tr>
+                <td><strong>Slow Execution</strong></td>
+                <td>50% of properties</td>
+                <td>$3.65M</td>
+                <td>15%</td>
+                <td>Hit minimum target</td>
+            </tr>
+            <tr>
+                <td><strong>Market Decline</strong></td>
+                <td>-20% values</td>
+                <td>$10.50M</td>
+                <td>36%</td>
+                <td>Still strong returns</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 9 of 13</div>
+</div>
+
+<!-- SLIDE 10: RISK ANALYSIS -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Understanding &<br/>Managing Risk</h1>
+    <h2>Conservative underwriting ensures returns even in downside scenarios</h2>
+    
+    <h3>Performance Under Different Scenarios</h3>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Execution Level</th>
+                <th>Properties</th>
+                <th>LP Returns</th>
+                <th>Multiple</th>
+                <th>IRR</th>
+                <th>8% Pref Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background: #F0FDF4;">
+                <td><strong>100% Execution</strong></td>
+                <td>324</td>
+                <td>$13,149,780</td>
+                <td>6.88x</td>
+                <td>45%</td>
+                <td><span class="badge success">Fully paid</span></td>
+            </tr>
+            <tr>
+                <td><strong>80% Execution</strong></td>
+                <td>259</td>
+                <td>$9,500,000</td>
+                <td>4.97x</td>
+                <td>32%</td>
+                <td><span class="badge success">Fully paid</span></td>
+            </tr>
+            <tr>
+                <td><strong>65% Execution</strong></td>
+                <td>211</td>
+                <td>$6,800,000</td>
+                <td>3.56x</td>
+                <td>22%</td>
+                <td><span class="badge success">Fully paid</span></td>
+            </tr>
+            <tr style="background: #FFF7ED;">
+                <td><strong>50% Execution</strong></td>
+                <td>162</td>
+                <td>$3,650,000</td>
+                <td>1.91x</td>
+                <td>15%</td>
+                <td><span class="badge success">Fully paid</span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div style="background: var(--light); padding: 32px; border-radius: 16px; margin: 32px 0; text-align: center;">
+        <p style="font-size: 20px; font-weight: 600; color: var(--primary);">
+            Key Insight: Even at 50% execution, we achieve our 15% minimum IRR promise
+        </p>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 10 of 13</div>
+</div>
+
+<!-- SLIDE 11: FUND TERMS -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Fund Terms &<br/>Structure</h1>
+    <h2>Simple, transparent, aligned structure designed for mutual success</h2>
+    
+    <div style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 40px; border-radius: 16px; margin: 32px 0;">
+        <h3 style="color: white; text-align: center; margin-bottom: 32px;">REVERIE CAPITAL GROUP: FUND I</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+            <div>
+                <p style="opacity: 0.8; margin-bottom: 8px;">Fund Size</p>
+                <p style="font-size: 28px; font-weight: 700;">$1,910,000</p>
+            </div>
+            <div>
+                <p style="opacity: 0.8; margin-bottom: 8px;">Minimum Investment</p>
+                <p style="font-size: 28px; font-weight: 700;">$100,000</p>
+            </div>
+            <div>
+                <p style="opacity: 0.8; margin-bottom: 8px;">Fund Term</p>
+                <p style="font-size: 28px; font-weight: 700;">5 Years</p>
+            </div>
+            <div>
+                <p style="opacity: 0.8; margin-bottom: 8px;">Target Close</p>
+                <p style="font-size: 28px; font-weight: 700;">Q4 2025</p>
+            </div>
+        </div>
+    </div>
+    
+    <h3>Economic Terms</h3>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Term</th>
+                <th>Details</th>
+                <th>Your Benefit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Preferred Return</strong></td>
+                <td>8% annually to LPs</td>
+                <td>Paid before GP profits</td>
+            </tr>
+            <tr>
+                <td><strong>Minimum IRR</strong></td>
+                <td>15%</td>
+                <td>Conservative promise</td>
+            </tr>
+            <tr>
+                <td><strong>Projected IRR</strong></td>
+                <td>45%</td>
+                <td>Based on proven model</td>
+            </tr>
+            <tr>
+                <td><strong>Target Multiple</strong></td>
+                <td>2.0x minimum</td>
+                <td>Double your money floor</td>
+            </tr>
+            <tr>
+                <td><strong>Projected Multiple</strong></td>
+                <td>6.88x</td>
+                <td>Nearly 7x potential</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 11 of 13</div>
+</div>
+
+<!-- SLIDE 12: NEXT STEPS -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>Investment Summary &<br/>Next Steps</h1>
+    <h2>Join us in revolutionizing real estate through technology</h2>
+    
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th style="text-align: center;">We Promise (Minimum)</th>
+                <th style="text-align: center;">We Project (Base Case)</th>
+                <th style="text-align: center;">Industry Average</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>LP IRR</strong></td>
+                <td style="text-align: center; font-size: 24px;">15%</td>
+                <td style="text-align: center; font-size: 24px; color: var(--accent); font-weight: 700;">45%</td>
+                <td style="text-align: center; font-size: 24px; color: var(--gray);">8-12%</td>
+            </tr>
+            <tr>
+                <td><strong>LP Multiple</strong></td>
+                <td style="text-align: center; font-size: 24px;">2.0x</td>
+                <td style="text-align: center; font-size: 24px; color: var(--accent); font-weight: 700;">6.88x</td>
+                <td style="text-align: center; font-size: 24px; color: var(--gray);">1.5x</td>
+            </tr>
+            <tr style="background: var(--light);">
+                <td><strong>Total Return on $1M</strong></td>
+                <td style="text-align: center; font-size: 24px;">$2M</td>
+                <td style="text-align: center; font-size: 24px; color: var(--accent); font-weight: 700;">$6.88M</td>
+                <td style="text-align: center; font-size: 24px; color: var(--gray);">$1.5M</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3 style="margin-top: 40px;">Why Invest Now</h3>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+        <div style="background: var(--light); padding: 24px; border-radius: 12px;">
+            <h4 style="color: var(--accent); margin-bottom: 12px;">Market Timing Perfect</h4>
+            <ul style="list-style: none; padding: 0; font-size: 13px;">
+                <li style="padding: 4px 0;">✓ Cleveland 15%+ cap rates</li>
+                <li style="padding: 4px 0;">✓ Interest rates stabilizing</li>
+                <li style="padding: 4px 0;">✓ B/C rental demand high</li>
+            </ul>
+        </div>
+        <div style="background: var(--light); padding: 24px; border-radius: 12px;">
+            <h4 style="color: var(--accent); margin-bottom: 12px;">We're Ready to Execute</h4>
+            <ul style="list-style: none; padding: 0; font-size: 13px;">
+                <li style="padding: 4px 0;">✓ 125-unit track record</li>
+                <li style="padding: 4px 0;">✓ Technology operational</li>
+                <li style="padding: 4px 0;">✓ 400+ property pipeline</li>
+            </ul>
+        </div>
+        <div style="background: var(--light); padding: 24px; border-radius: 12px;">
+            <h4 style="color: var(--accent); margin-bottom: 12px;">Limited Opportunity</h4>
+            <ul style="list-style: none; padding: 0; font-size: 13px;">
+                <li style="padding: 4px 0;">✓ Fund limited to $1.91M</li>
+                <li style="padding: 4px 0;">✓ Only 19 investor spots</li>
+                <li style="padding: 4px 0;">✓ Closing Q4 2025</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 12 of 13</div>
+</div>
+
+<!-- SLIDE 13: THE COMPLETE STORY -->
+<div class="slide">
+    <div class="slide-header">
+        <div class="logo">REVERIE CAPITAL GROUP</div>
+    </div>
+    
+    <h1>The Complete Story:<br/>Your Journey with Reverie</h1>
+    <h2>From $1.91M to $26.2M in 5 years through proven execution</h2>
+    
+    <div style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 40px; border-radius: 16px; margin: 32px 0;">
+        <h3 style="color: white; text-align: center; margin-bottom: 32px;">The Journey We'll Take Together</h3>
+        
+        <div style="display: grid; grid-template-columns: 1fr; gap: 24px;">
+            <div style="border-left: 4px solid var(--accent); padding-left: 24px;">
+                <h4 style="color: var(--accent);">Year 0: You Invest</h4>
+                <p>You commit $100K+ to join 18 other forward-thinking investors. Total fund: $1.91M ready to deploy.</p>
+            </div>
+            
+            <div style="border-left: 4px solid var(--accent); padding-left: 24px;">
+                <h4 style="color: var(--accent);">Years 1-2: We Build</h4>
+                <p>144 properties acquired, $7M+ platform commercialized, team scales to 15+, cash flow grows to $54K/month.</p>
+            </div>
+            
+            <div style="border-left: 4px solid var(--success); padding-left: 24px;">
+                <h4 style="color: var(--success);">Year 3: First Major Win</h4>
+                <p>PropTech exits for $8.64M. Portfolio reaches 216 properties. Monthly cash flow hits $90,000.</p>
+            </div>
+            
+            <div style="border-left: 4px solid #6366F1; padding-left: 24px;">
+                <h4 style="color: #6366F1;">Years 4-5: Peak & Exit</h4>
+                <p>Portfolio grows to 324 properties. $162,000 monthly cash flow. $46.33M portfolio sale. Your capital returned + 588% profit.</p>
+            </div>
+        </div>
+    </div>
+    
+    <h3>What Makes This Different</h3>
+    <table class="table-modern">
+        <thead>
+            <tr>
+                <th>Traditional Real Estate</th>
+                <th>Venture Capital</th>
+                <th>Reverie Capital (Best of Both)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>✅ Hard assets</td>
+                <td>❌ No hard assets</td>
+                <td>✅ 324 real properties</td>
+            </tr>
+            <tr>
+                <td>❌ Low returns (8-12%)</td>
+                <td>✅ High returns</td>
+                <td>✅ 45% projected IRR</td>
+            </tr>
+            <tr>
+                <td>✅ Cash flow</td>
+                <td>❌ No cash flow</td>
+                <td>✅ $5.25M distributions</td>
+            </tr>
+            <tr>
+                <td>❌ No tech upside</td>
+                <td>✅ Tech upside</td>
+                <td>✅ $8.64M PropTech exit</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div style="text-align: center; margin-top: 40px; padding: 40px; background: linear-gradient(135deg, var(--accent), #6366F1); color: white; border-radius: 16px;">
+        <h3 style="color: white; font-size: 32px; margin-bottom: 24px;">The Bottom Line</h3>
+        <p style="font-size: 20px; line-height: 1.8;">
+            "We're not asking you to bet on an idea.<br/>
+            We're inviting you to scale a proven system.<br/>
+            125 units done. Technology built. Team ready.<br/>
+            Now we multiply by 3x with your capital."
+        </p>
+        
+        <div style="margin-top: 32px;">
+            <p style="font-size: 24px; font-weight: 700;">This isn't just an investment.</p>
+            <p style="font-size: 24px; font-weight: 700;">It's your entry into the future of real estate.</p>
+        </div>
+    </div>
+    
+    <div class="slide-number">Confidential | Reverie Capital Group | Page 13 of 13</div>
+</div>
+
+</body>
+</html>
